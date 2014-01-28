@@ -1,3 +1,17 @@
+/*
+ * Swiper Scrollbar 2.4.0
+ * Plugin for Swiper 2.4+
+ *
+ * http://www.idangero.us/sliders/swiper/plugins/scrollbar.php
+ *
+ * Copyright 2010-2014, Vladimir Kharlampidi
+ * The iDangero.us
+ * http://www.idangero.us/
+ *
+ * Licensed under GPL, MIT
+ *
+ * Released on: January 28, 2014
+*/
 .swiper-scrollbar {
 	border-radius: 10px;
 	position: relative;
