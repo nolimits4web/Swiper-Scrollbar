@@ -1,0 +1,25 @@
+{
+  "name": "swiper-scrollbar",
+  "repo": "nolimits4web/Swiper-Scrollbar",
+  "description": "Scrollbar plugin for Swiper",
+  "version": "2.4.0",
+  "keywords": [
+    "swiper",
+    "swipe",
+    "slider",
+    "plugin",
+    "scrollbar"
+  ],
+  "dependencies": {},
+  "scripts": [
+    "dist/idangerous.swiper.scrollbar.js"
+  ],
+  "main": "dist/idangerous.swiper.scrollbar.js",
+  "styles": [
+    "dist/idangerous.swiper.scrollbar.css"
+  ],
+  "license": "MIT",
+  "devDependencies": {
+    "swiper": "~2.4.2"
+  }
+}
