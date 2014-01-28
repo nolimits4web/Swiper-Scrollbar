@@ -2,7 +2,7 @@
   "name": "swiper-scrollbar",
   "repository": {
     "type": "git",
-    "url": "https://github.com/nolimits4web/Swiper-Scrollbar"
+    "url": "https://github.com/nolimits4web/Swiper-Scrollbar.git"
   },
   "description": "Scrollbar plugin for Swiper",
   "version": "2.4.0",
