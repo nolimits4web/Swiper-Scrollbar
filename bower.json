@@ -1,6 +1,9 @@
 {
   "name": "swiper-scrollbar",
-  "repo": "nolimits4web/Swiper-Scrollbar",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nolimits4web/Swiper-Scrollbar"
+  },
   "description": "Scrollbar plugin for Swiper",
   "version": "2.4.0",
   "keywords": [
@@ -10,7 +13,7 @@
     "plugin",
     "scrollbar"
   ],
-  "dependencies": {},
+  "homepage": "http://www.idangero.us/sliders/swiper/plugins/scrollbar.php",
   "scripts": [
     "dist/idangerous.swiper.scrollbar.js"
   ],
@@ -19,7 +22,15 @@
     "dist/idangerous.swiper.scrollbar.css"
   ],
   "license": "MIT",
-  "devDependencies": {
+  "dependencies": {
     "swiper": "~2.4.2"
-  }
+  },
+  "ignore": [
+    ".*",
+    "demos",
+    "Gruntfile",
+    "lib",
+    "node_modules",
+    "package.json"
+  ]
 }
