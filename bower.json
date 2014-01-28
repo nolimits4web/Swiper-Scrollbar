@@ -6,6 +6,7 @@
   },
   "description": "Scrollbar plugin for Swiper",
   "version": "2.4.0",
+  "author": "Vladimir Kharlampidi",
   "keywords": [
     "swiper",
     "swipe",
@@ -21,7 +22,7 @@
   "styles": [
     "dist/idangerous.swiper.scrollbar.css"
   ],
-  "license": "MIT",
+  "license": ["GPL", "MIT"],
   "dependencies": {
     "swiper": "~2.4.2"
   },
