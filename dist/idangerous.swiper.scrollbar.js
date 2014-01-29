@@ -1,17 +1,17 @@
 /*
- * Swiper Scrollbar 2.1
- * Plugin for Swiper 2.0+
- * http://www.idangero.us/sliders/swiper/
+ * Swiper Scrollbar 2.4.0
+ * Plugin for Swiper 2.4+
  *
- * Copyright 2012-2013, Vladimir Kharlampidi
+ * http://www.idangero.us/sliders/swiper/plugins/scrollbar.php
+ *
+ * Copyright 2010-2014, Vladimir Kharlampidi
  * The iDangero.us
  * http://www.idangero.us/
  *
  * Licensed under GPL & MIT
  *
- * Released on: June 9, 2013
+ * Released on: January 28, 2014
 */
-
 Swiper.prototype.plugins.scrollbar = function(swiper, params){
 	
 	var enabled = params && params.container;
@@ -82,16 +82,21 @@ Swiper.prototype.plugins.scrollbar = function(swiper, params){
 			track.style.opacity = 1;
 			swiper.setWrapperTransition(100);
 			swiper.setTransition(drag,100)
-			
+			if(params.onScrollbarDrag) {
+				params.onScrollbarDrag(swiper)
+			}
 		}
 		function dragMove(e){
 			if(!isTouched) return;
 			if(e.preventDefault) e.preventDefault();
-            else e.returnValue = false;
+      else e.returnValue = false;
 			setDragPosition(e);
 			swiper.setWrapperTransition(0);
 			swiper.setTransition(track,0)
 			swiper.setTransition(drag,0)
+			if(params.onScrollbarDrag) {
+				params.onScrollbarDrag(swiper)
+			}
 		}
 		function dragEnd(e) {
 			isTouched = false;
@@ -118,15 +123,16 @@ Swiper.prototype.plugins.scrollbar = function(swiper, params){
 			var x = y = 0;
 			var position;
 			if (isH) {
-				x = (e.pageX || e.clientX) - swiper.h.getOffset(track).left - dragWidth/2
+				var pageX = (e.type=='touchstart' || e.type=='touchmove') ? e.targetTouches[0].pageX : e.pageX || e.clientX;
+				x = (pageX) - swiper.h.getOffset(track).left - dragWidth/2
 				if (x<0) x = 0;
 				else if ( (x+dragWidth) > trackWidth) {
 					x = trackWidth - dragWidth;
 				}
 			}
 			else {
-				
-				y = (e.pageY||e.clientY) - swiper.h.getOffset(track).top - dragHeight/2;
+				var pageY = (e.type=='touchstart' || e.type=='touchmove') ? e.targetTouches[0].pageY : e.pageY || e.clientY;
+				y = (pageY)  - swiper.h.getOffset(track).top - dragHeight/2;
 				
 				if (y<0) y = 0;
 				else if ( (y+dragHeight) > trackHeight) {
@@ -139,9 +145,8 @@ Swiper.prototype.plugins.scrollbar = function(swiper, params){
 			//Wrapper Offset
 			var wrapX = -x/moveDivider;
 			var wrapY = -y/moveDivider;
-			
-			swiper.setWrapperTranslate(wrapX ,wrapY)
-			
+			swiper.setWrapperTranslate(wrapX ,wrapY, 0)
+			swiper.updateActiveSlide(isH ? wrapX : wrapY);
 		}
 	}
 	
@@ -150,19 +155,26 @@ Swiper.prototype.plugins.scrollbar = function(swiper, params){
 		drag.style.height = ''
 		if (isH) {
 			trackWidth = swiper.h.getWidth(track, true);
-			divider = swiper.width/swiper.h.getWidth(swiper.wrapper);
+			divider = swiper.width/(swiper.h.getWidth(swiper.wrapper) + swiper.wrapperLeft + swiper.wrapperRight);
 			moveDivider = divider*(trackWidth/swiper.width);
 			dragWidth = trackWidth*divider;
 			drag.style.width = dragWidth+'px';
 		}
 		else {
 			trackHeight = swiper.h.getHeight(track, true);
-			divider = swiper.height/swiper.h.getHeight(swiper.wrapper);
+			divider = swiper.height/(swiper.h.getHeight(swiper.wrapper) + swiper.wrapperTop + swiper.wrapperBottom);
 			moveDivider = divider*(trackHeight/swiper.height);
 			dragHeight = trackHeight*divider;
 			if (dragHeight>trackHeight) dragHeight = trackHeight
 			drag.style.height = dragHeight+'px';
 		}
+		if(divider>=1) {
+			container.style.display='none'
+		}
+		else {
+			container.style.display=''
+		}
+
 	}
 	var timeout;
 
