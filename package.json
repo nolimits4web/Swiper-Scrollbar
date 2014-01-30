@@ -1,7 +1,7 @@
 {
-  "name": "Swiper-Scrollbar",
+  "name": "swiper-scrollbar",
   "version": "2.4.0",
-  "description": "Mobile touch slider and framework with hardware accelerated transitions",
+  "description": "Scrollbar plugin for Swiper",
   "main": "dist/idangerous.swiper.scrollbar.js",
   "repository": {
     "type": "git",
