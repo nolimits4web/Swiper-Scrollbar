@@ -1,7 +1,7 @@
 'use strict';
 
 /*global require:true, module:false*/
-module.exports = function(grunt) {
+module.exports = function (grunt) {
     // show elapsed time at the end
     require('time-grunt')(grunt);
     // load all grunt tasks
@@ -17,19 +17,19 @@ module.exports = function(grunt) {
         // Metadata.
         pkg: grunt.file.readJSON('bower.json'),
         banner: '/*\n' +
-          ' * Swiper Scrollbar <%= pkg.version %>\n' +
-          ' * Plugin for Swiper 2.4+\n' +
-          ' *\n' +
-          ' * <%= pkg.homepage %>\n' +
-          ' *\n' +
-          ' * Copyright 2010-<%= grunt.template.today("yyyy") %>, <%= pkg.author %>\n' +
-          ' * The iDangero.us\n' +
-          ' * http://www.idangero.us/\n' +
-          ' *\n' +
-          ' * Licensed under <%= pkg.license.join(" & ") %>\n' +
-          ' *\n' +
-          ' * Released on: <%= grunt.template.today("mmmm d, yyyy") %>\n' +
-          '*/\n',
+        ' * Swiper Scrollbar <%= pkg.version %>\n' +
+        ' * Plugin for Swiper 2.4+\n' +
+        ' *\n' +
+        ' * <%= pkg.homepage %>\n' +
+        ' *\n' +
+        ' * Copyright 2010-<%= grunt.template.today("yyyy") %>, <%= pkg.author %>\n' +
+        ' * The iDangero.us\n' +
+        ' * http://www.idangero.us/\n' +
+        ' *\n' +
+        ' * Licensed under <%= pkg.license.join(" & ") %>\n' +
+        ' *\n' +
+        ' * Released on: <%= grunt.template.today("mmmm d, yyyy") %>\n' +
+        '*/\n',
         // Task configuration.
         concat: {
             options: {
@@ -40,7 +40,7 @@ module.exports = function(grunt) {
                 src: ['lib/<%= swiper.filename %>.js'],
                 dest: 'dist/<%= swiper.filename %>.js'
             },
-            css:{
+            css: {
                 src: ['lib/<%= swiper.filename %>.css'],
                 dest: 'dist/<%= swiper.filename %>.css'
             }
@@ -101,7 +101,7 @@ module.exports = function(grunt) {
     this.registerTask('build', 'Builds a distributable version of <%= pkg.name %>', [
         'concat:js',
         'concat:css',
-        //'jshint:all',
+        'jshint:lib',
         'uglify'
     ]);
 
