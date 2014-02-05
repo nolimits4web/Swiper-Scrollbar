@@ -97,7 +97,7 @@ module.exports = function (grunt) {
             lib: {
                 src: '<%= jshint.lib.src %>',
                 dest: 'dist/<%= swiper.filename %>.umd.js',
-                amdModuleId: 'swiper-scrollbar',
+                amdModuleId: '<%= pkg.name %>',
                 objectToExport: 'Swiper',
                 indent: '    ',
                 deps: {
