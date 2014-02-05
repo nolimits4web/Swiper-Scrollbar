@@ -1,0 +1,9 @@
+{
+  "name": "swiper-scrollbar-demos",
+  "description": "Demos for Scrollbar plugin for Swiper",
+  "author": "Vladimir Kharlampidi",
+  "license": ["GPL", "MIT"],
+  "dependencies": {
+    "swiper": "~2.4.2"
+  }
+}
