@@ -18,8 +18,8 @@
   "scripts": [
     "dist/idangerous.swiper.scrollbar.js"
   ],
-  "main": "dist/idangerous.swiper.scrollbar.js",
-  "styles": [
+  "main": [
+    "dist/idangerous.swiper.scrollbar.js",
     "dist/idangerous.swiper.scrollbar.css"
   ],
   "license": ["GPL", "MIT"],
