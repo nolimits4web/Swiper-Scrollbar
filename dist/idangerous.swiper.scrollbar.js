@@ -10,7 +10,7 @@
  *
  * Licensed under GPL & MIT
  *
- * Released on: May 6, 2014
+ * Released on: June 27, 2014
 */
 Swiper.prototype.plugins.scrollbar = function (swiper, params) {
 
